@@ -1,0 +1,18 @@
+<div class="ibox developer-generate-module">
+    <div class="ibox-title">
+        <h4>Generate a new module based on another one</h4>
+    </div>
+    <div class="ibox-content">
+        <form  action="{{ action }}" method="POST" class="form-inline">
+            <label for="exampleInputName2">Template module</label>
+            <select name="template_codename" class="form-control ">
+                    {% for extension in extensions %}
+                        <option value="{{ extension.codename }}">{{ extension.codename }}</option>
+                    {% endfor %}
+                </select>
+            <input type="text" class="form-control" id="exampleInputEmail2" name="codename" placeholder="codename">
+          <input type="submit" class="btn btn-default" value="Generate">
+        </form>
+        <form>
+    </div>
+</div>

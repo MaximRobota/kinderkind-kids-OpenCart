@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% for style in styles %} 
+    <link type="text/css" href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}" />
+    {% endfor %} 
+    {% for script in scripts %} 
+    <script type="text/javascript" src="{{ script }}"></script>
+    {% endfor %} 
+    <style>
+        .extension-show-thumb{
+            display: none;
+        }
+        .extension-thumb .ibox-content{
+            border: 1px solid #efefef;
+            border-top: none;
+        }
+         
+    </style>
+</head>
+<body>
+<div class="extension-show-thumb">
+    {{ extension }}
+    {% include 'extension/d_shopunity/purchase_modal.twig' %}
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.extension-show-thumb').fadeIn();
+    });
+</script>
+</body>
+</html>
+

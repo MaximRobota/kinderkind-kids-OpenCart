@@ -1,0 +1,66 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        {{ profile }}
+    </div>
+    <div class="col-md-9">
+        <div class="ibox">
+            <div class="ibox-title">
+                <ul class="nav nav-tabs">
+                    <li><a href="{{ href_order }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_order }}
+                    </a></li>
+                    <li><a href="{{ href_invoice }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_invoice }}
+                    </a></li>
+                    <li class="active"><a href="{{ href_transaction }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_transaction }}
+                    </a></li>
+                </ul>
+                <h2>Transactions</h2>
+                <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+            </div>
+            <div class="ibox-content">
+                 {% if transactions %}
+                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                    {% for transaction in transactions %}
+                        <tr>
+                            <td>
+                                {{ transaction.date_added }}
+                            </td>
+                            <td>
+                                <div class="h4 name">#{{ transaction.user_transaction_id }} {{ transaction.description }}</div>
+                            </td>
+                            <td>
+                                {{ transaction.amount_format }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %} 
+                <div class="clearfix">
+                    {% if page == 1 %}
+                    <a class="btn btn-default" href="{{ prev }}"><span class="fa fa-chevron-left"></span> Prev</a>
+                    {% endif %} 
+                    {% if transactions %} 
+                    <a class="btn btn-default pull-right" href="{{ next }}">Next <span class="fa fa-chevron-right"></span></a>
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ content_bottom }}

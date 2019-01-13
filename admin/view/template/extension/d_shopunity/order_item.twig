@@ -1,0 +1,121 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        {% include 'extension/d_shopunity/extension_thumb.twig' with extension %}
+
+        {{ developer }}
+    </div>
+    <div class="col-md-9">
+        <div class="ibox">
+
+            <div class="ibox-title">
+                <h2><strong>#{{ order.order_id }}</strong>: {{ order.name }}</h2>
+            </div>
+            <div class="ibox-content">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_history" data-toggle="tab">
+                        <span class="fa fa-user"></span> 
+                        {{ tab_history }}
+                    </a></li>
+                    <li><a href="#tab_invoice" data-toggle="tab">
+                        <span class="fa fa-user"></span> 
+                        {{ tab_invoice }}
+                    </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_history">
+                        <h2>Order History</h2>
+                        <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+                        {% if order.order_history %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>date_added</th>
+                                    <th>description</th>
+                                    <th>order_status_id</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                            {% for order_history in order.order_history %}
+                                <tr>
+                                    <td>
+                                        {{ order_history.order_history_id }}
+                                    </td>
+                                    <td>
+                                        {{ order_history.date_added }}
+                                    </td>
+                                    <td>
+                                        {{ order_history.description  }}
+                                    </td>
+                                    <td>
+                                        {% if order_history.order_status_id %} 
+                                            <span class="label label-success">active</span>
+                                        {% else %}
+                                            <span class="label label-danger">inactive</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %} 
+                            </tbody>
+                        </table>
+                        {% endif %}
+                    </div>
+                    <div class="tab-pane" id="tab_invoice">
+                        <h2>Order Invoices</h2>
+                        <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+                        {% if order.order_invoices %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>name</th>
+                                    <th>date_start</th>
+                                    <th>date_finish</th>
+                                    <th>invoice_status_id</th>
+                                    <th>price (total)</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+
+                            {% for invoice in order.order_invoices %}
+                                {% set break = false %}
+                                {% for invoice_order in invoice.invoice_orders if not break  %}
+                                    {% if invoice_order.order_id == order.order_id %}
+                                        {% set break = true %}
+                                    {% endif %}
+                                {% endfor %}
+                                <tr>
+                                    <td>
+                                        {{ invoice.invoice_id }}
+                                    </td>
+                                    <td>
+                                        {{ invoice.name }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_order.date_start }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_order.date_finish }}
+                                    </td>
+                                    <td>
+                                        {{ invoice.invoice_status_id }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_order.recurring_price }}
+                                        ({{ invoice.total_format }})
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ content_bottom }}

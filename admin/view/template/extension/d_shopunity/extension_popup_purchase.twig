@@ -1,0 +1,31 @@
+<div class="extension-popup" id="extension_{{ extension.extension_id }}">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <div class="m-b">
+                <p>Purchase with voucher</p>
+                <i class="fa fa-tag fa-4x"></i>
+            </div>
+            <a class="btn btn-primary btn-lg m-b claim-external-order" data-href="{{ claim_external_order }}">Vaucher</a>
+            <p>If you have purchased a license from another market like Opencart, you can claim your voucher to purchase the license here</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="m-b">
+                <p>Your current balance</p>
+                <span style="font-size: 32px;">{{ account.balance_format }}</span>
+                <a href="{{ add_money }}" target="_blank" class="btn btn-success btn-xs add-to-balance"><i class="fa fa-plus"></i></a>
+            </div>
+            <div class="purchase-extension  form-inline">
+                {% if extension.price %} 
+                     <select class="form-control input-lg pull-left hide">
+                        {% for price in extension.prices %}
+                        <option value="{{ price.extension_recurring_price_id }}">{{ price.recurring_price_format }} / {{ price.recurring_duration }} days</option>
+                        {% endfor %}
+                    </select>
+                {% endif %} 
+                <a class="btn btn-primary btn-lg m-b" data-extension-id="{{ extension.extension_id }}">Credit</a>
+            </div>
+            <p>You can purchase any extension with Shopunity Credit. Simply visit the shopunity billing and add credit via paypal.</p>
+        </div>
+
+    </div>
+</div>

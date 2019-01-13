@@ -1,0 +1,121 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        {{ profile }}
+    </div>
+    <div class="col-md-9">
+        <div class="ibox">
+
+            <div class="ibox-title">
+                <h2><strong>#{{ invoice.invoice_id }}</strong>: {{ invoice.name }}</h2>
+            </div>
+            <div class="ibox-content">
+                <div id="tab_order">
+                    <h2>Invoice</h2>
+                    <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+                    {% if invoice.invoice_orders %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>name</th>
+                                <th>quantity</th>
+                                <th>price</th>
+                                <th>total</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                        {% set i = 0 %}
+                           {% for order in invoice.invoice_orders %}
+                            <tr>
+                                <td>
+                                    {% set i = i+1 %}
+                                    {{ i }}
+                                </td>
+                                <td>
+                                    {{ order.name }} from {{ order.date_start }} till {{ order.date_finish }}
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    {{ order.recurring_price }}
+                                </td>
+                                <td>
+                                    {{ order.recurring_price }}
+                                </td>
+                            </tr>
+                        {% endfor %} 
+                        {% set i = 0 %}
+                        {% for voucher in invoice.invoice_vouchers %}
+                            <tr>
+                                <td>
+                                    {% set i = i+1 %}
+                                    {{ i }}
+                                </td>
+                                <td>
+                                    {{ voucher.name }}
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    -{{ order.recurring_price }}
+                                </td>
+                                <td>
+                                    -{{ order.recurring_price }}
+                                </td>
+                            </tr>
+                        {% endfor %} 
+
+                            <tr>
+                                <td colspan="4"></td>
+                                <td>{{ invoice.total_format }}</td>
+                            </tr>
+                        </tbody>
+
+                        
+                    </table>
+                    {% endif %}
+                </div>
+                <div id="tab_history">
+                    <h2>History</h2>
+                    <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+                    {% if invoice.invoice_history %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>date_added</th>
+                                    <th>description</th>
+                                    <th>order_status_id</th>
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                            {% for invoice_history in invoice.invoice_history %}
+                                <tr>
+                                    <td>
+                                        {{ invoice_history.invoice_history_id }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_history.date_added }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_history.description }}
+                                    </td>
+                                    <td>
+                                        {{ invoice_history.invoice_status_id }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ content_bottom }}

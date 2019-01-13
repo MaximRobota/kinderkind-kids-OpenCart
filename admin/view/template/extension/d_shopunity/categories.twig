@@ -1,0 +1,13 @@
+<div class="ibox developer-profile">
+    <div class="ibox-title">
+        <h4>Categories</h4>
+        <p>Browes categories to find interesting extensions</p>
+    </div>
+</div>
+<ul class="list-group">
+    {% if categories %} 
+        {% for category in categories %}
+        <li class="list-group-item"><a href=""><h4>{{ category.name }}</h4><small>{{ category.description }}</small></a></li>
+        {% endfor %}
+    {% endif %} 
+</ul>

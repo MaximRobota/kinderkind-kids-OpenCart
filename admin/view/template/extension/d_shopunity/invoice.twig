@@ -1,0 +1,97 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        {{ profile }}
+    </div>
+    <div class="col-md-9">
+        <div class="ibox">
+            <div class="ibox-title">
+                <ul class="nav nav-tabs">
+                    <li><a href="{{ href_order }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_order }}
+                    </a></li>
+                    <li  class="active"><a href="{{ href_invoice }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_invoice }}
+                    </a></li>
+                    <li><a href="{{ href_transaction }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_transaction }}
+                    </a></li>
+                </ul>
+                <h2>Invoices</h2>
+                <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+            </div>
+            <div class="ibox-content">
+                 {% if invoices %}
+                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                    {% for invoice in invoices %}
+                        <tr>
+                            <td>
+                                {{ invoice.invoice_id }}
+                            </td>
+                            
+                            <td>
+                                <a href="{{ invoice.url }}">
+                                    <div class="h4 name">{{ invoice.name }}</div>
+                                </a>
+                                <p class="description">{{ invoice.date_added }}</p>
+                                {% if not invoice.invoice_status_id %} 
+                                    <div class="alert alert-danger">
+                                        This invoice == overdue - please pay it as soon as possible.
+                                    </div>
+
+                                {% endif %} 
+                            </td>
+                            <td>
+                              {{ attribute(_context, 'text_invoice_status_'~invoice.invoice_status_id)}}
+                            </td>
+                            <td>
+                                {{ invoice.total_format }}
+                            </td>
+                            <td>
+                                
+                                <div class="pull-right">
+                                    {% if invoice.invoice_status_id == 0 %} 
+                                        <a class="btn btn-success popup-pay-invoice" data-href="{{ invoice.popup_pay_invoice }}" data-toggle="tooltip" data-original-title="Pay"><span class="fa fa-money"></span></a>
+                                    {% elseif invoice.refundable %} 
+                                        <a class="btn btn-warning" href="{{ invoice.refund }}" data-toggle="tooltip" data-original-title="Refund"><span class="fa fa-repeat"></span></a>
+                                    {% endif %}
+                                    {% if invoice.cancelable %}  
+                                    <a class="btn btn-danger" href="{{ invoice.cancel }}" data-toggle="tooltip" data-original-title="Cancel"><span class="fa fa-ban"></span></a>
+                                    {% endif %} 
+                                    <a class="btn btn-info  " href="{{ invoice.url }}" data-toggle="tooltip" data-original-title="View"><span class="fa fa-eye"></span></a>
+
+                                </div>
+                            </td>
+                        
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %} 
+                <div class="clearfix">
+                    {% if page  == 1 %}
+                    <a class="btn btn-default" href="{{ prev }}"><span class="fa fa-chevron-left"></span> Prev</a>
+                    {% endif %} 
+                    {% if invoices %} 
+                    <a class="btn btn-default pull-right" href="{{ next }}">Next <span class="fa fa-chevron-right"></span></a>
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ content_bottom }}

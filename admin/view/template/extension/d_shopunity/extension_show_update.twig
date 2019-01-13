@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% for style in styles %} 
+    <link type="text/css" href="{{ style.href }}" rel="{{ style.rel }}" media="{{ style.media }}" />
+    {% endfor %} 
+    {% for script in scripts %} 
+    <script type="text/javascript" src="{{ script }}"></script>
+    {% endfor %} 
+    <style>
+        .extension-show-thumb{
+            display: none;
+        }
+        .extension-thumb .ibox-content{
+            border: 1px solid #efefef;
+            border-top: none;
+        }
+         
+    </style>
+</head>
+<body>
+<div class="extension-show-thumb">
+
+    {% if extension.updatable and extension.installed %} 
+        {% if extension.update_available %}
+            <!-- update -->
+            <div class="alert alert-info">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h4>New version available.</h4>
+                        {% for changelog in extension %}
+                            <p><strong>{{ changelog.version }}</strong> {{ changelog.change }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-4">
+                        <a class="btn btn-info pull-right show-loading popup-extension m-b" data-href="{{ extension.popup }}&theme=extension_thumb_row&action=update"  data-toggle="tooltip" data-original-title="Update"><span class="fa fa-refresh"></span> Install v{{ extension.version }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endif %} 
+    {% endif %} 
+    {% include 'extension/d_shopunity/purchase_modal.twig' %} 
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.extension-show-thumb').fadeIn();
+    });
+</script>
+</body>
+</html>

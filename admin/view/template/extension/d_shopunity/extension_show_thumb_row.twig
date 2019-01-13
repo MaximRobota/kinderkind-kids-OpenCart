@@ -1,0 +1,7 @@
+<ul class="list list-unstyled">
+    {% for extension in extensions %} 
+    <li>
+        {% include 'extension/d_shopunity/extension_thumb_row.twig' with  extension %}
+    </li>
+    {% endfor %} 
+</ul>

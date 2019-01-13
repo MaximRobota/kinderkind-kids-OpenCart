@@ -1,0 +1,40 @@
+.ibox{
+	clear: both;
+    margin-bottom: 25px;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+    background-color: #ffffff;
+    .ibox-content {
+	    background-color: #ffffff;
+	    color: inherit;
+	    padding: 15px 20px 20px 20px;
+	    border-color: #e7eaec;
+	    border-image: none;
+	    border-style: solid solid none;
+	    border-width: 1px 0px;
+	}
+	.ibox-title {
+	    -moz-border-bottom-colors: none;
+	    -moz-border-left-colors: none;
+	    -moz-border-right-colors: none;
+	    -moz-border-top-colors: none;
+	    background-color: #ffffff;
+	    border-color: #e7eaec;
+	    border-image: none;
+	    border-style: solid solid none;
+	    border-width: 4px 0px 0;
+	    color: inherit;
+	    margin-bottom: 0;
+	    padding: 14px 15px 7px;
+	    min-height: 48px;
+	}
+	.ibox-footer{
+		padding: 10px;
+		background: #fff;
+		border-top: 1px solid #efefef;
+		*{
+			color: #ccc;
+		}
+	}
+}

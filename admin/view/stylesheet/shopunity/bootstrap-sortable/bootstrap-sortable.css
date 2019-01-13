@@ -1,0 +1,21 @@
+.sortable{
+	position: relative;
+	background: #fff;
+}
+.sortable .dragged{
+	z-index: 10000;
+	display: table-row;
+	width: 100%;
+	position: absolute;
+	background: inherit;
+}
+.sortable .dragged td{
+	display: block;
+	width: 100%;
+	background: inherit;
+}
+.sortable .placeholder{
+	display: table-row;
+	background: #efefef;
+	height: 41px
+}

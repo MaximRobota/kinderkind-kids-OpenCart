@@ -1,0 +1,46 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+ 
+            <li class="list-group-item"><a href="{{ all }}"><h4>All</h4><small>All extensions</small></a></li>
+            <li class="list-group-item"><a href="{{ commercial }}"><h4>Commercial</h4><small>List of commercial extensions</small></a></li>
+            <li class="list-group-item"><a href="{{ free }}"><h4>Free</h4><small>List of free extensions</small></a></li>
+        </ul>
+        {{ categories }}
+    </div>
+
+    <div class="col-md-9">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h4>Search for extensions</h4>
+                <p>
+                    <div class="input-group input-group-lg">
+                        <input type="text" name="search" class="form-control" value="{{ search }}" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default search" data-href="{{ search_href }}" type="button">Search</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </p>
+            </div>
+        </div>
+        {% if extensions %} 
+            <div class="row row-clear">
+                {% for extension in extensions %} 
+                    <div class="col-md-3 col-sm-6">
+                        {% include 'extension/d_shopunity/extension_thumb.twig' with extension %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div>
+                {% if page == 1 %}
+                <a class="btn btn-default" href="{{ prev }}"><span class="fa fa-chevron-left"></span> Prev</a>
+                {% endif %} 
+                {% if extensions|length == 12 %}
+                <a class="btn btn-default pull-right" href="{{ next}}">Next <span class="fa fa-chevron-right"></span></a>
+                {% endif %} 
+            </div>
+         {% endif %} 
+    </div>
+</div>
+{{ content_bottom }}

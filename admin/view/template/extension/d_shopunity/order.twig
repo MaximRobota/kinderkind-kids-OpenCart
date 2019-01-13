@@ -1,0 +1,106 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        {{ profile }}
+    </div>
+    <div class="col-md-9">
+        
+        <div class="ibox">
+
+            <div class="ibox-title">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="{{ href_order }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_order }}
+                    </a></li>
+                    <li><a href="{{ href_invoice }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_invoice }}
+                    </a></li>
+                    <li><a href="{{ href_transaction }}" >
+                        <span class="fa fa-user"></span> 
+                        {{ tab_transaction }}
+                    </a></li>
+                </ul>
+                <h2>Orders</h2>
+                <p>These are the purchases for the current shop. You may have more purchases for other shops. To view them, visit your account.</p>
+                {% if orders_overdue.count %} 
+                <div>You have {{ orders_overdue.count }} orders overdue with a total of {{ orders_overdue.total_format }} </div>
+                    <br/>
+                    <a href="{{ create_invoice }}" class="btn btn-primary">Create Invoice</a>
+                {% endif %} 
+            </div>
+            <div class="ibox-content">
+                 {% if orders %}
+                 <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>
+                                {{ order.order_id }}
+                            </td>
+                            <td>
+                                <div class="img-sm">
+                                    <img src="{{ order.store_extension.processed_images.0.url }}" class="img-responsive img-rounded" />
+                                </div>
+                            </td>
+                            <td>
+                                <a  href="{{ order.url }}" >
+                                    <div class="h4 name">{{ order.name }}</div>
+                                </a>
+                                 {% if order.order_active %} 
+                                    <p class="description">Payment due on {{ order.date_next_invoice }}: {{ order.store_extension.store_extension.recurring_price_format }}</p>
+                                    {% if order.order_invoiced  and  not order.order_paid %} 
+                                        <div class="alert alert-danger">Payment is overdue. Please pay the invoice</div>
+                                    {% endif %} 
+                                {% else %}  
+                                    <div class="alert alert-info">This Order is inactive</div>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <div class="pull-right">
+                                    {% if not order.store_extension.installed %} 
+                                        {% if order.store_extension.store_extension.status %} 
+                                            {% if not order.trial_expired  or  order.order_paid %} 
+                                                {% if order.suspend %} 
+                                                    <a class="btn btn-danger" href="{{ order.suspend }}" data-toggle="tooltip" data-original-title="Suspend"><span class="fa fa-ban"></span></a>
+                                                {% endif %} 
+                                            {% endif %} 
+                                        {% else %} 
+                                            {% if order.activate %}  
+                                                <a class="btn btn-primary" href="{{ order.activate }}" data-toggle="tooltip" data-original-title="Activate"><span class="fa fa-refresh"></span></a>
+                                            {% endif %} 
+                                        {% endif %} 
+                                    {% else %}  
+                                        <div class="btn btn-link" data-toggle="tooltip" data-original-title="The extension for this order is installed and is working"><span class="fa fa-check"></span></div>
+                                    {% endif %}
+                                    <a class="btn btn-info" href="{{ order.url }}" data-toggle="tooltip" data-original-title="View"><span class="fa fa-eye"></span></a>
+                                </div>
+                            </td>
+                        </tr>
+                     {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+                <div class="clearfix">
+                    {% if page == 1 %}
+                    <a class="btn btn-default" href="{{ prev }}"><span class="fa fa-chevron-left"></span> Prev</a>
+                    {% endif %} 
+                    {% if orders %} 
+                    <a class="btn btn-default pull-right" href="{{ next }}">Next <span class="fa fa-chevron-right"></span></a>
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ content_bottom }}

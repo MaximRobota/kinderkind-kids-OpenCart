@@ -1,0 +1,54 @@
+<div class="extension-popup" id="extension_{{ extension.extension_id }}">
+        
+        <div class="row">
+            
+            <div class="col-md-4">
+                <img class="img-responsive img-thumbnail img-rounded m-b" src="{{ extension.processed_images.1.url }}" alt="" />
+            </div>
+            <div class="col-md-8">
+                <h3> {{ extension.name }} <span class="label label-default"> {{ extension.version }}</span></h3>
+                <p> {{ extension.description_short }}</p>
+                <p><a class="btn btn-primary test-extension" data-href="{{ extension.test }}" data-extension_id="{{ extension.extension_id }}">Install</a></p>
+            </div>
+        </div>
+        {% if extension.required %}
+        <div class="required">
+            <h4>Dependencies</h4>
+            <div class="alert alert-info">This extension relies on the extensions below to properly function. Most of the dependencies are free and will be installed automatically, yet there may be some dependencies that you will be required to purchase before you can use the main extension</div>
+            {% for key, required in extension.required %}  
+                <hr/>
+                <div class="row" id="required_{{ required.extension_id }}">
+                    <div class="col-md-1">{{ key+1 }}</div>
+                    <div class="col-md-2"><img class="img-responsive img-thumbnail img-rounded m-b" src="{{ required.processed_images.1.url }}" alt="" /></div>
+                    <div class="col-md-5">
+                        {{ required.name }}
+                        {% if required.status %} <span class="label label-default">{{ required.version }}<span>
+                        {% else %}  <span class="label label-danger">Inactive</span> {% endif %}  </div>
+                    <div class="col-md-4 ">
+                        {% if required.installed %} 
+                            <span class="btn btn-default pull-right">installed</span>
+                        {% endif %} 
+                        {% if not required.installed  and  required.installable %} 
+                            <span class="btn btn-success pull-right to-be-installed">
+                                <span class="text-start">Will be installed</span>
+                                <span class="text-process hide"><span class="fa fa-refresh fa-spin"></span></span>
+                                <span class="text-complete hide">installed</span>
+                            </span>
+                            <span class="btn btn-danger pull-right hide">
+                                <span class="text-error">Error</span>
+                            </span>
+                        {% endif %} 
+                        {% if not required.installed  and  not required.installable  and  required.purchasable %} 
+                            <span class="btn btn-danger pull-right">Please purchase</span>
+                        {% endif %} 
+                        {% if not required.installed  and  not required.installable  and  not required.purchasable %} 
+                            <span class="btn btn-danger pull-right">Can not be installed</span>
+                        {% endif %} 
+                    </div>
+                    <div class="col-md-12"></div>
+                </div>
+             {% endfor %}
+        </div>
+         {% endif %}
+        <pre class="log"></pre>
+</div>

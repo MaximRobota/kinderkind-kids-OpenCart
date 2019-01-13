@@ -1,0 +1,55 @@
+{{ content_top }}
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+        {% if path_up %} 
+            <li class="list-group-item list-group-item-info"><a href="{{ path_up }}"><i class="fa fa-long-arrow-left"></i> Back</a></li>
+        {% else %}  
+            <li class="list-group-item list-group-item-info">Upload folder</li>
+        {% endif %}
+        {% for file in files %}
+            <li class="list-group-item"><a href="{{ file.url }}"><i class="fa {% if file.type  == 'file' %} fa-file-text-o {% else %} fa-folder-o {% endif %}"></i>   {{ file.name }}</a></li>
+        {% endfor %} 
+        </u>
+    </div>
+    <div class="col-md-9">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h2>{{ codename }} :: <small> 
+                    <a href="{{ home }}"><i class="fa fa-home"></i></a>
+                    /
+                    {% for path in paths %}
+                        {% if path.url %} 
+                            <a href="{{ path.url }}">{{ path.name }}</a> / 
+                        {% else %}  
+                            {{ path.name }}
+                        {% endif %}
+                    {% endfor %}
+                </small></h2>
+            </div>
+            <div class="ibox-content">
+                {% if file_type == 'dir' %} 
+                    <div class="alert alert-info">This is a folder</div>
+                {% else %}  
+                    <textarea id="code">{{ file_content }}</textarea>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    #code{
+        display: none;
+    }
+    .CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+}
+</style>
+<script type="text/javascript">
+    var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("code"),{
+        lineNumbers: true,
+        viewportMargin: Infinity
+      });
+</script>
+{{ content_bottom }}

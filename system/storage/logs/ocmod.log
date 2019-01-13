@@ -1,0 +1,209 @@
+2019-01-13 21:20:07 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 48
+LINE: 106
+LINE: 118
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 30
+LINE: 36
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 13
+----------------------------------------------------------------
+2019-01-13 22:08:31 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 48
+LINE: 106
+LINE: 118
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 30
+LINE: 36
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 13
+----------------------------------------------------------------
+2019-01-13 22:13:22 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 48
+LINE: 106
+LINE: 118
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 30
+LINE: 36
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 13
+----------------------------------------------------------------
+MOD: d_opencart_patch
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 337
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 353
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 504
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 512
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 71
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+NOT FOUND!
+----------------------------------------------------------------
+MOD: d_shopunity
+FILE: admin/controller/common/header.php
+CODE: public function index() {
+LINE: 7
+CODE: <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ image }}" alt="{{ firstname }} {{ lastname }}" title="{{ username }}" id="user-profile" class="img-circle" />{{ firstname }} {{ lastname }} <i class="fa fa-caret-down fa-fw"></i></a>
+LINE: 49
+----------------------------------------------------------------
+2019-01-13 22:26:16 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 48
+LINE: 106
+LINE: 118
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 30
+LINE: 36
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 13
+----------------------------------------------------------------
+2019-01-13 22:26:46 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 41
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 48
+LINE: 106
+LINE: 118
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 30
+LINE: 36
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 13
+----------------------------------------------------------------
+MOD: d_opencart_patch
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 337
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 353
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 504
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 512
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 71
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+NOT FOUND!
+----------------------------------------------------------------
+MOD: d_shopunity
+FILE: admin/controller/common/header.php
+CODE: public function index() {
+LINE: 7
+CODE: <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ image }}" alt="{{ firstname }} {{ lastname }}" title="{{ username }}" id="user-profile" class="img-circle" />{{ firstname }} {{ lastname }} <i class="fa fa-caret-down fa-fw"></i></a>
+LINE: 49
+----------------------------------------------------------------

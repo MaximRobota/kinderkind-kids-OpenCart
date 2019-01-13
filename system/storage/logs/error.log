@@ -1,0 +1,39 @@
+2018-12-25 21:48:26 - PHP Warning:  mysqli::mysqli():  in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2018-12-25 21:48:26 - PHP Warning:  mysqli::mysqli():  in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2018-12-25 21:48:26 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2018-12-25 21:48:26 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2018-12-25 21:48:26 - PHP Notice:  Undefined variable: mysql in C:\OSPanel\domains\kiderKidnKids\install\controller\install\step_3.php on line 276
+2018-12-25 21:48:26 - PHP Notice:  Trying to get property of non-object in C:\OSPanel\domains\kiderKidnKids\install\controller\install\step_3.php on line 276
+2019-01-12 18:13:51 - PHP Warning:  unlink(C:/OSPanel/domains/kiderKidnKids/system/storage/cache/cache.catalog.language.1547320431): No such file or directory in C:\OSPanel\domains\kiderKidnKids\system\library\cache\file.php on line 68
+2019-01-12 18:34:54 - PHP Warning:  move_uploaded_file(c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bacE052.tmp): failed to open stream: Invalid argument in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:34:54 - PHP Warning:  move_uploaded_file(): Unable to move 'C:\OSPanel\userdata\temp\phpDC1B.tmp' to 'c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bacE052.tmp' in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:13 - PHP Warning:  move_uploaded_file(c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac2B67.tmp): failed to open stream: Invalid argument in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:13 - PHP Warning:  move_uploaded_file(): Unable to move 'C:\OSPanel\userdata\temp\php2701.tmp' to 'c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac2B67.tmp' in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:23 - PHP Warning:  move_uploaded_file(c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac519E.tmp): failed to open stream: Invalid argument in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:23 - PHP Warning:  move_uploaded_file(): Unable to move 'C:\OSPanel\userdata\temp\php4D58.tmp' to 'c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac519E.tmp' in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:29 - PHP Warning:  move_uploaded_file(c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac6AF5.tmp): failed to open stream: Invalid argument in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-12 18:35:29 - PHP Warning:  move_uploaded_file(): Unable to move 'C:\OSPanel\userdata\temp\php66AE.tmp' to 'c:/ospanel/userdata/temp//C:\OSPanel\userdata\temp\bac6AF5.tmp' in C:\OSPanel\domains\kiderKidnKids\admin\controller\tool\backup.php on line 55
+2019-01-13 22:33:41 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:41 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:41 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:41 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:42 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:42 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:42 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:42 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:42 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:42 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:43 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:43 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:43 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:43 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:43 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:43 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:44 - PHP Warning:  mysqli::mysqli(): (08004/1040): Too many connections in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 7
+2019-01-13 22:33:44 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10
+2019-01-13 22:33:44 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in C:\OSPanel\domains\kiderKidnKids\system\library\db\mysqli.php on line 10

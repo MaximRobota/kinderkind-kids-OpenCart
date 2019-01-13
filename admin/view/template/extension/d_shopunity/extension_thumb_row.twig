@@ -1,0 +1,158 @@
+<div class="extension-thumb extension-thumb-row"  id="extension_thumb_{{ extension.codename }}">
+    <div class="row">
+        <div class="col-md-1">
+            <a href="{{ extension.url }}">
+               <img class="img-responsive img-rounded m-b" src="{{ extension.processed_images.1.url }}" alt="" />
+            </a>
+            {% if extension.downloadable  and  extension.tester_status_id %}
+            <p class="m-b m-t text-center">
+                {% if extension.tester_status_id == 0  or  extension.tester_status_id == 3  or  extension.tester_status_id  == 6 %} 
+                    <span class="label label-danger">
+                {% endif %} 
+                {% if extension.tester_status_id  ==  1  or  extension.tester_status_id  ==  2 %} 
+                    <span class="label label-info">
+                {% endif %} 
+                {% if extension.tester_status_id  ==  4 %} 
+                    <span class="label label-warning">
+                {% endif %} 
+                {% if extension.tester_status_id  ==  5 %} 
+                    <span class="label label-success">
+                {% endif %} 
+                {{ attribute(_context, "text_tester_status_"~extension.tester_status_id) }}
+
+                </span>
+            </p>
+            {% endif %} 
+             
+        </div>
+        <div class="col-md-2">
+            <strong class="name">{{ extension.name }}</strong>
+            <span class="label label-default">{{ extension.current_version }}</span> 
+            {% if extension.part_of_pack %}
+                <span class="label label-info">Part of pack</span>
+            {% endif %} 
+            <p class="m-t m-b">
+                {% if extension.installed  or  extension.admin  or  extension.submittable  and  extension.installed  or  extension.downloadable %}    
+                    <div class="m-b">
+                    {% if extension.installed  or  extension.downloadable %}  
+                        <a class="btn btn-info btn-xs show-extension-json" data-href="{{ extension.json }}" data-toggle="tooltip" data-original-title="mbooth.json"><span class="fa fa-code"></span></a>
+                    {% endif %} 
+                    {% if extension.admin %} 
+                        <a class="btn btn-info btn-xs  show-loading" href="{{ extension.admin }}"  data-toggle="tooltip" data-original-title="Admin"><span class="fa fa-pencil"></span></a>
+                    {% endif %} 
+
+                    {% if extension.submittable  and  extension.installed %} 
+                        <a class="btn btn-warning btn-xs  show-loading submit-extension" data-href="{{ extension.submit }}" data-toggle="tooltip" data-original-title="Submit"><span class="fa fa-cloud-upload"></span></a>
+                    {% endif %} 
+
+                    {% if extension.downloadable  and  extension.installed %} 
+                        <a class="btn btn-default btn-xs download-extension" data-href="{{ extension.download }}"  data-toggle="tooltip" data-original-title="Download"><span class="fa fa-download"></span></a>
+                        <a class="btn btn-default btn-xs " href="{{ extension.filemanager }}"  data-toggle="tooltip" data-original-title="Filemanager"><span class="fa fa-file-code-o"></span></a>
+                        
+                    {% endif %} 
+                    
+                    {% if extension.submittable  and  extension.extension_id  ==  1 %} 
+                        <a class="btn btn-warning btn-xs show-loading developer-update-extension" data-href="{{ extension.developer_update }}" data-toggle="tooltip" data-original-title="Update everywhere"><span class="fa fa-globe"></span></a>
+                    {% endif %} 
+                    
+                    </div>
+                {% endif %} 
+            </p>
+            
+            
+
+            
+        </div>
+        
+        <div class="col-md-5">
+            <p class="text-muted m-b">{{ extension.description_short }}</p> 
+
+    
+            {% if extension.downloadable  and  extension.tester_comment %} 
+                <div class="alert alert-danger"><strong>Tester's reason for rejection</strong><br/>{{ extension.tester_comment }}</div>
+            {% endif %} 
+    
+            {% if extension.update_available %}
+                <div class="alert alert-info">{{ text_new_version_available }} {{ extension.version }}</div>
+            {% endif %} 
+        </div>
+        <div class="col-md-1 col-xs-3">
+            {% if extension.developer %} 
+                <a class="developer">
+                   <img class="img-responsive img-circle" data-toggle="tooltip" data-original-title="{{ extension.developer.name }}" src="{{ extension.developer.image }}" />
+                </a>
+            {% endif %} 
+        </div>
+        
+        <div class="col-md-3 col-xs-9">
+            <div class="pull-right m-b">
+                <div class="form-inline">
+                
+                {% if extension.installable  and  not extension.installed %} 
+                        <!-- install -->
+                        <a class="btn btn-success show-loading popup-extension" data-href="{{ extension.popup }}&theme=extension_thumb_row"  data-toggle="tooltip" data-original-title="Install"><span class="fa fa-magic"></span></a>
+                    {% endif %} 
+                    
+                    {% if extension.updatable  and  extension.installed %} 
+                        <!-- update -->
+                        <a class="btn btn-success show-loading popup-extension" data-href="{{ extension.popup }}&theme=extension_thumb_row&action=update"  data-toggle="tooltip" data-original-title="Update"><span class="fa fa-refresh"></span></a>
+                    {% endif %} 
+                    
+                   
+                    {% if extension.purchasable %} 
+                        <!-- purchase -->
+                        <div class=" btn-group">
+                            {% if extension.price %} 
+                             <select class="form-control">
+                                {% for price in extension %}
+                                <option value="{{ price.extension_recurring_price_id }}">
+                                    {{ price.recurring_price_format }} / {{ price.recurring_duration }}days
+                                </option>
+                                {% endfor %}
+                            </select>
+                          
+                            {% endif %} 
+                           
+                            <a class="btn btn-primary pull-right popup-purchase" data-href="{{ extension.popup_purchase }}&theme=extension_thumb_row" data-extension-id="{{ extension.extension_id }}">Get it</a>
+                        </div>
+                    {% endif %} 
+
+
+                    {% if extension.installed %} 
+                        <!-- delete -->
+                        <a class="btn btn-danger show-loading delete-extension" data-href="{{ extension.uninstall }}&theme=extension_thumb_row"  data-toggle="tooltip" data-original-title="Delete"><span class="fa fa-trash-o"></span></a>    
+                    {% endif %} 
+
+                    {% if extension.suspendable  and  not extension.installed %} 
+                        <!-- suspend -->
+                        <a class="btn btn-danger show-loading suspend-extension" data-href="{{ extension.suspend }}" data-toggle="tooltip" data-original-title="Suspend"><span class="fa fa-ban"></span></a>
+                    {% endif %}                 
+                    
+                    {% if extension.activate %} 
+                        <!-- activate -->
+                        <a class="btn btn-success activate-extension hide" data-href="{{ extension.activate }}"  data-toggle="tooltip" data-original-title="Activate"><span class="fa fa-power-off "></span></a>
+                    {% endif %} 
+
+                    {% if extension.deactivate %} 
+                        <!-- deactivate -->
+                        <a class="btn btn-danger deactivate-extension hide" data-href="{{ extension.deactivate }}"  data-toggle="tooltip" data-original-title="Deactivate"><span class="fa fa-power-off "></span></a>
+                    {% endif %} 
+                    
+                    
+                    {% if extension.commercial  and  not extension.purchasable  and  not extension.installable %} 
+                        <!-- pay invoice -->
+                        <a class="btn btn-danger" href="{{ extension.billing }}" data-toggle="tooltip" data-original-title="Billing">Pay invoice</a>
+                    {% endif %} 
+                </div>
+                {% if extension.testable %} 
+                <br/>
+                <div class="form-inline pull-right">
+                    <a class="btn btn-primary show-loading approve-extension" data-href="{{ extension.approve }}" data-toggle="tooltip" data-original-title="Approve"><span class="fa fa-thumbs-up"></span></a>
+                    <a class="btn btn-danger show-loading disapprove-extension" data-href="{{ extension.disapprove }}" data-toggle="tooltip" data-original-title="Disaprove"><span class="fa fa-thumbs-down"></span></a>
+                    <a class="btn btn-warning show-loading popup-extension" data-href="{{ extension.popup }}&theme=extension_thumb_row&action=test" ><span class="fa fa-cloud-download"></span></a>
+                </div>
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+</div>

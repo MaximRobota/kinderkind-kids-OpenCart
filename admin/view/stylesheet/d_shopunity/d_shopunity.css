@@ -1,0 +1,156 @@
+/**
+ * Stylesheet for d_shopunity
+ */
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+  position: relative;
+  background-color: #ffffff; }
+  .ibox .ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0px; }
+  .ibox .ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 0px 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 48px; }
+  .ibox .ibox-footer {
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #efefef; }
+    .ibox .ibox-footer * {
+      color: #ccc; }
+
+.img-sm {
+  width: 70px;
+  overflow: hidden; }
+
+.login {
+  text-align: center;
+  padding: 40px 0px; }
+  .login .logo {
+    font-size: 80px;
+    font-weight: bold;
+    color: #ccc;
+    line-height: 1.6; }
+  .login .description {
+    width: 60%;
+    margin-bottom: 20px;
+    margin: 20px auto; }
+
+.developer-profile .ibox-content {
+  padding: 40px 20px; }
+.developer-profile .image img {
+  width: 50%;
+  border-radius: 100px;
+  margin: auto; }
+.developer-profile .caption {
+  text-align: center; }
+  .developer-profile .caption .balance {
+    color: #999;
+    display: inline-block; }
+    .developer-profile .caption .balance .add-to-balance {
+      margin-left: 10px; }
+  .developer-profile .caption .description {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 15px; }
+.developer-profile .extensions {
+  text-align: center;
+  margin-bottom: 15px; }
+  .developer-profile .extensions .btn {
+    display: inline-block; }
+.developer-profile .links {
+  text-align: center; }
+  .developer-profile .links .btn {
+    display: inline-block; }
+
+.account-profile .ibox-content {
+  padding: 40px 20px; }
+.account-profile .image img {
+  width: 50%;
+  border-radius: 100px;
+  margin: auto; }
+.account-profile .caption {
+  text-align: center; }
+  .account-profile .caption .balance {
+    color: #999;
+    display: inline-block; }
+    .account-profile .caption .balance .add-to-balance {
+      margin-left: 10px; }
+  .account-profile .caption .name {
+    text-align: center;
+    color: #ccc; }
+.account-profile .view-profile {
+  text-align: center; }
+  .account-profile .view-profile .btn {
+    display: inline-block; }
+
+.extension-thumb .absolute-description {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7; }
+.extension-thumb .developer img {
+  width: 30px; }
+.extension-thumb .name {
+  height: 32px;
+  overflow: hidden; }
+.extension-thumb .rating {
+  float: left; }
+.extension-thumb .reviews {
+  float: right; }
+.extension-thumb .downloads {
+  margin-left: 10px;
+  display: inline-block; }
+.extension-thumb .loading {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  vertical-align: middle; }
+  .extension-thumb .loading .fa {
+    margin-top: 50%;
+    display: inline-block; }
+  .extension-thumb .loading.show {
+    display: block; }
+
+.extension-thumb-row {
+  border-bottom: solid 1px #eee;
+  padding: 15px 15px 0px 15px; }
+  .extension-thumb-row:hover {
+    background: rgba(0, 0, 0, 0.02); }
+
+.extention-item .description {
+  max-width: 900px;
+  margin: auto; }
+
+/*# sourceMappingURL=d_shopunity.css.map */

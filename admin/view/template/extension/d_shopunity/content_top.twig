@@ -1,0 +1,75 @@
+{{ header}}{{ column_left }}
+<div id="content">
+	<div class="page-header">
+		<div class="container-fluid">
+			<div class="form-inline pull-right">
+				<a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+			</div>
+			<h1>{{ heading_title }} {{ version }}</h1>
+			<ul class="breadcrumb">
+				{% for breadcrumb in breadcrumbs %}
+				<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid">
+		{% if error %}
+		<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error }}
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+		{% endif %}
+		{% if success %}
+		<div class="alert alert-success"><i class="fa fa-exclamation-circle"></i> {{ success }}
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		</div>
+		{% endif %}
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				
+				<div class="navbar-header">
+				    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="fa fa-bars fa-2x"></span>
+				    </button>
+				</div>
+				<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+					<ul  class="nav nav-pills">
+						<li {% if route == 'extension/d_shopunity/extension' %}class="active" {% endif %}><a href="{{ href_extension }}" >
+							<span class="fa fa-puzzle-piece"></span> 
+							{{ tab_extension }}
+						</a></li>
+						<li {% if route == 'extension/d_shopunity/market' %}class="active" {% endif %}><a href="{{ href_market }}" >
+							<span class="fa fa-flask"></span> 
+							{{ tab_market }}
+						</a></li>
+						
+						{% if developer %}
+						<li {% if route == 'extension/d_shopunity/developer' %}class="active" {% endif %}><a href="{{ href_developer }}" >
+							<span class="fa fa-code"></span> 
+							{{ tab_developer }}
+						</a></li>
+						{% endif %}
+						{% if tester %}
+						<li {% if route == 'extension/d_shopunity/tester' %}class="active" {% endif %}><a href="{{ href_tester }}" >
+							<span class="fa fa-rocket"></span> 
+							{{ tab_tester }}
+						</a></li>
+						{% endif %}
+						<li {% if route == 'extension/d_shopunity/order' or route == 'd_shopunity/invoice' or route == 'd_shopunity/transaction' %}class="active" {% endif %}><a href="{{ href_billing }}" >
+							<span class="fa fa-money"></span> 
+							{{ tab_billing }}
+						</a></li>
+						<!-- <li><a href="{{ href_backup }}" >
+							<span class="fa fa-undo"></span> 
+							{{ tab_backup }}
+						</a></li> -->
+						<!-- <li {% if route == 'd_shopunity/setting' %}class="active" {% endif %}><a href="{{ href_setting }}" >
+							<span class="fa fa-cog"></span> 
+							{{ tab_setting }}
+						</a></li> -->
+						<li class="pull-right logout"><a href="{{ logout }}" class="btn btn-default">{{ button_logout }}</a><li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel-body">

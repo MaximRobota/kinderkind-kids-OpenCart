@@ -1,0 +1,173 @@
+/**
+ * Stylesheet for d_shopunity
+ */
+@import "scss/ibox";
+@import "scss/image";
+//
+// Account
+// --------------------------------------------------
+.login{
+	text-align: center;
+	.logo{
+		font-size: 80px;
+		font-weight: bold;
+		color: #ccc;
+		line-height: 1.6;
+	}
+	.description{
+		width: 60%;
+		margin-bottom: 20px;
+		margin: 20px auto;
+	}
+	padding: 40px 0px;
+}
+.developer-profile{
+	.ibox-content{
+		padding: 40px 20px;
+	}
+	.image{
+		img{
+			width: 50%;
+			border-radius: 100px;
+			margin: auto;
+		}
+	}
+	.caption{
+		text-align: center;
+		.name{
+			
+		}
+		.balance{
+			color: #999;
+			display: inline-block;
+			.add-to-balance{
+				margin-left: 10px;
+			}
+		}
+		.description{
+			text-align: center;
+			color: #ccc;
+			margin-bottom: 15px;
+		}
+	}
+	.extensions{
+		text-align: center;
+		margin-bottom: 15px;
+		.btn{
+			display: inline-block;
+		}
+	}
+	.links{
+		text-align: center;
+		.btn{
+			display: inline-block;
+		}
+	}
+}
+.account-profile{
+	.ibox-content{
+		padding: 40px 20px;
+	}
+	.image{
+		img{
+			width: 50%;
+			border-radius: 100px;
+			margin: auto;
+		}
+	}
+	.caption{
+		text-align: center;
+		.username{
+			
+		}
+		.balance{
+			color: #999;
+			display: inline-block;
+			.add-to-balance{
+				margin-left: 10px;
+			}
+		}
+		.name{
+			text-align: center;
+			color: #ccc;
+		}
+	}
+	.view-profile{
+		text-align: center;
+		.btn{
+			display: inline-block;
+		}
+	}
+}
+.extension-thumb{
+	.absolute-description{
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.8);
+		padding: 25px;
+		color: #fff;
+		font-size: 14px;
+		line-height: 1.7;
+
+	}
+	.developer{
+	
+		img{
+			width: 30px;
+
+		}
+	}
+	.name{
+		height: 32px;
+		overflow: hidden;
+	}
+
+	.rating{
+		float: left;
+	}
+	.reviews{
+		float: right;
+
+	}
+	.downloads{
+		margin-left: 10px;
+		display: inline-block;
+	}
+	.loading{
+		position: absolute;
+		display: none;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.8);
+		padding: 25px;
+		color: #fff;
+		font-size: 14px;
+		line-height: 1.7;
+		text-align: center;
+		vertical-align: middle;
+		.fa{
+			margin-top: 50%;
+			display: inline-block;
+		}
+		&.show{
+			display: block;
+		}
+	}
+}
+.extension-thumb-row{
+	border-bottom: solid 1px #eee;
+	padding: 15px 15px 0px 15px;
+	&:hover{
+		background: rgba(0,0,0,0.02);
+	}
+
+}
+.extention-item{
+	.description{
+		max-width: 900px;
+		margin: auto;
+	}
+}
